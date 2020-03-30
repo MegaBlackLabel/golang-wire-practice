@@ -4,11 +4,12 @@ import "fmt"
 
 func main() {
 	e := InitializeEvent()
-
-	d := InitializeFoo()
-	a := d.Foo()
-	fmt.Println(a)
-
 	e.Start()
-	// e.Foo()
+
+	d := InitializeInterface()
+	fmt.Println(d.Foo())
+
+	s := InitializeStruct()
+	fmt.Println(s.MyBar)
+	fmt.Println(s.MyFoo)
 }

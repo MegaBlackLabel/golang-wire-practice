@@ -14,7 +14,17 @@ func InitializeEvent() Event {
 	return event
 }
 
-func InitializeFoo() *MyFooer {
+func InitializeInterface() *MyFooer {
 	myFooer := provideMyFooer()
 	return myFooer
+}
+
+func InitializeStruct() FooBar {
+	fooInt := ProvideFoo()
+	barInt := ProvideBar()
+	fooBar := FooBar{
+		MyFoo: fooInt,
+		MyBar: barInt,
+	}
+	return fooBar
 }

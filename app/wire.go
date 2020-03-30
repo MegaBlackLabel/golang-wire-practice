@@ -10,7 +10,12 @@ func InitializeEvent() Event {
 	return Event{}
 }
 
-func InitializeFoo() *MyFooer {
-	wire.Build(appSet)
+func InitializeInterface() *MyFooer {
+	wire.Build(SetInterface)
 	return nil
+}
+
+func InitializeStruct() FooBar {
+	wire.Build(SetStruct)
+	return FooBar{}
 }

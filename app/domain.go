@@ -37,6 +37,7 @@ func (e Event) Start() {
 	fmt.Println(msg)
 }
 
+// Binding Interfaces
 type Fooer interface {
 	Foo() string
 }
@@ -60,7 +61,29 @@ func provideBar(f Fooer) string {
 	return f.Foo()
 }
 
-var appSet = wire.NewSet(
+var SetInterface = wire.NewSet(
 	provideMyFooer,
 	wire.Bind(new(Fooer), new(*MyFooer)),
 	provideBar)
+
+// Struct Providers
+type FooInt int
+type BarInt int
+
+func ProvideFoo() FooInt {
+	return 1
+}
+
+func ProvideBar() BarInt {
+	return 4
+}
+
+type FooBar struct {
+	MyFoo FooInt
+	MyBar BarInt
+}
+
+var SetStruct = wire.NewSet(
+	ProvideFoo,
+	ProvideBar,
+	wire.Struct(new(FooBar), "MyFoo", "MyBar"))
