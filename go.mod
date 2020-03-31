@@ -1,4 +1,4 @@
-module test.com/megablacklabel/wire-example
+module github.com/megablacklabel/golang-wire-practice
 
 go 1.13
 
